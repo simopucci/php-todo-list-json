@@ -5,32 +5,17 @@ const app = createApp({
         return {
             title: 'ToDo List JSON',
 
-            taskList: [
-                // {
-                //     text: 'Task 1',
-                //     done: true,
-                // },
-                // {
-                //     text: 'Task 2',
-                //     done: false,
-                // },
-                // {
-                //     text: 'Task 3',
-                //     done: false,
-                // },
-                // {
-                //     text: 'Task 4',
-                //     done: true,
-                // },
-            ],
+            taskList: [],
         };
     },
 
     methods: {
         // funzione che recupera la taskList
         getTaskLisk() {
-            
-        }
+            axios.get('../back-end/api/get-tasklist.php').then((res) => {
+                this.taskList = res.data;
+            });
+        },
     },
 
     mounted() {
