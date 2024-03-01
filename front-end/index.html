@@ -27,15 +27,15 @@
 
             <div class="input-group mb-4">
                 <input v-model="newTask.text" @keyUp.enter="addTask()" type="text" class="form-control" placeholder="New Task" aria-label="New Task" aria-describedby="button-add-task">
-                <button @click="addTask()" class="btn btn-primary" type="button" id="button-add-task">Button</button>
+                <button @click="addTask()" class="btn btn-primary" type="button" id="button-add-task">Add Task</button>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5">
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li v-for="(task, index) in taskList" @click="updateStatusTask(task, index)" :class="task.done ? 'text-decoration-line-through' : ''" class="list-group-item d-flex justify-content-between">
-                                <span>{{ task.text }}</span>
+                            <li v-for="(task, index) in taskList"  :class="task.done ? 'text-decoration-line-through' : ''" class="list-group-item d-flex justify-content-between">
+                                <span @click="updateStatusTask(task, index)">{{ task.text }}</span>
 
                                 <i @click="deleteTask(index)" class="bi bi-trash text-danger"></i>
                             </li>
